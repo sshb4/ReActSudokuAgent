@@ -64,3 +64,9 @@ Status: initial contracts, written before function bodies or tests. Contract IDs
 - **A02 — Response constraints:** the model adapter requests schema-constrained output. Accept exactly one tool request per response. Reject free text, zero requests, multiple requests, and schema violations as one malformed attempt, with no tool execution. Model prose cannot mutate state or establish success.
 - **A03 — Test model:** a scripted implementation of the model interface supplies predetermined requests for deterministic integration tests. It tests orchestration but does not replace the language model in the final demonstration.
 - **A04 — Final result:** return application status, explicit terminal reason, final board, action counts, trace, and run events. Stop asking the model for actions immediately after termination.
+
+## CLI replay interface
+
+**L01:** `python -m react_sudoku --puzzle BOARD.json --replay REQUESTS.json --max-actions N [--output RESULT.json]` loads a board and a JSON array of scripted requests. The default budget is 200. The replay adapter implements `Model.next_request` by returning the next scripted item, without modifying it. Exhaustion raises a model failure handled by C07. Replay is a diagnostic demonstration, not a language model or evidence of model solving ability.
+
+**L02:** `cli.main(argv)` returns 0 on validated success, 1 on any other terminal outcome, and 2 on invalid arguments, unreadable inputs, invalid JSON/board, or unwritable output. Successful invocation writes the final JSON result to standard output, or to `--output` when supplied. Results include `mode=scripted_replay`. Input/output failures print a concise message to standard error without stack traces or input contents. Arguments are parsed with standard CLI help behavior. Input reads complete before the optional output file is written. A result is never submitted to an external service by replay mode.
