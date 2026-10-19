@@ -1,0 +1,643 @@
+{
+  "board": [
+    [
+      5,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      1,
+      2
+    ],
+    [
+      6,
+      7,
+      2,
+      1,
+      9,
+      5,
+      3,
+      4,
+      8
+    ],
+    [
+      1,
+      9,
+      8,
+      3,
+      4,
+      2,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      5,
+      9,
+      7,
+      6,
+      1,
+      4,
+      2,
+      3
+    ],
+    [
+      4,
+      2,
+      6,
+      8,
+      5,
+      3,
+      7,
+      9,
+      1
+    ],
+    [
+      7,
+      1,
+      3,
+      9,
+      2,
+      4,
+      8,
+      5,
+      6
+    ],
+    [
+      9,
+      6,
+      1,
+      5,
+      3,
+      7,
+      2,
+      8,
+      4
+    ],
+    [
+      2,
+      8,
+      7,
+      4,
+      1,
+      9,
+      6,
+      3,
+      5
+    ],
+    [
+      3,
+      4,
+      5,
+      2,
+      8,
+      6,
+      1,
+      7,
+      9
+    ]
+  ],
+  "givens": [
+    [
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ]
+  ],
+  "status": "success",
+  "terminal_reason": "solution_accepted",
+  "actions_used": 11,
+  "actions_remaining": 0,
+  "trace": [
+    {
+      "action": 1,
+      "request": {
+        "tool": "inspect",
+        "arguments": {
+          "scope": "board"
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "values": [
+            [
+              5,
+              3,
+              0,
+              6,
+              7,
+              8,
+              9,
+              1,
+              2
+            ],
+            [
+              6,
+              7,
+              2,
+              1,
+              9,
+              5,
+              3,
+              4,
+              8
+            ],
+            [
+              1,
+              9,
+              8,
+              3,
+              4,
+              2,
+              5,
+              6,
+              7
+            ],
+            [
+              8,
+              5,
+              9,
+              7,
+              6,
+              1,
+              4,
+              2,
+              3
+            ],
+            [
+              4,
+              2,
+              6,
+              8,
+              0,
+              3,
+              7,
+              9,
+              1
+            ],
+            [
+              7,
+              1,
+              3,
+              9,
+              2,
+              4,
+              8,
+              5,
+              6
+            ],
+            [
+              9,
+              6,
+              1,
+              5,
+              3,
+              7,
+              2,
+              8,
+              4
+            ],
+            [
+              2,
+              8,
+              7,
+              4,
+              1,
+              9,
+              6,
+              3,
+              5
+            ],
+            [
+              3,
+              4,
+              5,
+              2,
+              8,
+              6,
+              1,
+              7,
+              0
+            ]
+          ],
+          "givens": [
+            [
+              true,
+              true,
+              false,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              false,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ]
+          ]
+        },
+        "actions_used": 1,
+        "actions_remaining": 10,
+        "status": "running"
+      }
+    },
+    {
+      "action": 2,
+      "request": {
+        "tool": "inspect",
+        "arguments": {
+          "scope": "cell",
+          "row": 1,
+          "col": 3
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "values": 0,
+          "givens": false,
+          "candidates": [
+            4
+          ]
+        },
+        "actions_used": 2,
+        "actions_remaining": 9,
+        "status": "running"
+      }
+    },
+    {
+      "action": 3,
+      "request": {
+        "tool": "add_fact",
+        "arguments": {
+          "literal": "Board_v0_Cell13Only4"
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "changed": true
+        },
+        "actions_used": 3,
+        "actions_remaining": 8,
+        "status": "running"
+      }
+    },
+    {
+      "action": 4,
+      "request": {
+        "tool": "add_rule",
+        "arguments": {
+          "premises": [
+            "Board_v0_Cell13Only4"
+          ],
+          "conclusion": "Board_v0_Cell13CanPlace4"
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "changed": true
+        },
+        "actions_used": 4,
+        "actions_remaining": 7,
+        "status": "running"
+      }
+    },
+    {
+      "action": 5,
+      "request": {
+        "tool": "query",
+        "arguments": {
+          "literal": "Board_v0_Cell13CanPlace4"
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "result": "entailed"
+        },
+        "actions_used": 5,
+        "actions_remaining": 6,
+        "status": "running"
+      }
+    },
+    {
+      "action": 6,
+      "request": {
+        "tool": "place",
+        "arguments": {
+          "row": 1,
+          "col": 3,
+          "digit": 4
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "row": 1,
+          "col": 3,
+          "digit": 4
+        },
+        "actions_used": 6,
+        "actions_remaining": 5,
+        "status": "running"
+      }
+    },
+    {
+      "action": 7,
+      "request": {
+        "tool": "place",
+        "arguments": {
+          "row": 5,
+          "col": 5,
+          "digit": 5
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "row": 5,
+          "col": 5,
+          "digit": 5
+        },
+        "actions_used": 7,
+        "actions_remaining": 4,
+        "status": "running"
+      }
+    },
+    {
+      "action": 8,
+      "request": {
+        "tool": "undo",
+        "arguments": {}
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "row": 5,
+          "col": 5,
+          "digit": 5
+        },
+        "actions_used": 8,
+        "actions_remaining": 3,
+        "status": "running"
+      }
+    },
+    {
+      "action": 9,
+      "request": {
+        "tool": "place",
+        "arguments": {
+          "row": 5,
+          "col": 5,
+          "digit": 5
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "row": 5,
+          "col": 5,
+          "digit": 5
+        },
+        "actions_used": 9,
+        "actions_remaining": 2,
+        "status": "running"
+      }
+    },
+    {
+      "action": 10,
+      "request": {
+        "tool": "place",
+        "arguments": {
+          "row": 9,
+          "col": 9,
+          "digit": 9
+        }
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {
+          "row": 9,
+          "col": 9,
+          "digit": 9
+        },
+        "actions_used": 10,
+        "actions_remaining": 1,
+        "status": "running"
+      }
+    },
+    {
+      "action": 11,
+      "request": {
+        "tool": "submit",
+        "arguments": {}
+      },
+      "observation": {
+        "ok": true,
+        "code": "ok",
+        "data": {},
+        "actions_used": 11,
+        "actions_remaining": 0,
+        "status": "success"
+      }
+    }
+  ],
+  "events": [],
+  "mode": "scripted_replay"
+}

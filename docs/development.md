@@ -61,6 +61,12 @@ The first implementation run revealed an existing test collection bug: `request`
 
 The coding agent reviewed the implementation against the contracts and added seven explicitly supplemental checks after implementation: public KB behavior against an independent eight-world truth-table oracle across 480 proposed updates, five white-box corrupted-board cases, and isolation from model-adapter mutation. The complete 116-case suite passes; [verification output](evidence/core-tests.txt) is retained. This is coding-agent verification, not a claim of completed student code review. A real model adapter, CLI, model demonstration, report, and student review remain outstanding.
 
+### 2026-10-19 — CLI replay
+
+After committing the core in `cdb749e`, the coding agent specified L01–L02 and wrote nine CLI cases before the CLI/replay bodies. The [pre-implementation run](evidence/cli-before-implementation.txt) failed at import as expected, and the contracts/tests were committed in `8d9c630`. The CLI and replay adapter were then implemented, and all 125 cases passed. The provided replay exercises inspection, KB facts/rules/query, placement, undo, and explicit submission; it succeeds on the last of 11 actions. [Current verification](evidence/current-tests.txt) and a [labeled scripted trace](evidence/scripted-replay.json) are retained. This trace demonstrates tools, not language-model solving.
+
+Next: choose and verify an actual model runtime, implement schema-constrained selection with a finite timeout, record a model-driven run, perform student code review, and prepare the accessible PDF. No real-model completion or student review is claimed yet.
+
 ## Submission checklist
 
 - Complete repository, specifications, tests, code, and reproducible run instructions.

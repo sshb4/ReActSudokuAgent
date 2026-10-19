@@ -1,0 +1,12 @@
+Complete suite after core and CLI implementation
+Command: .venv/bin/python -m pytest -q
+Exit code: 0
+
+........................................................................ [ 57%]
+.....................................................                    [100%]
+125 passed in 0.13s
+
+CLI verification command:
+.venv/bin/python -m react_sudoku --puzzle examples/board.json --replay examples/replay.json --max-actions 11 --output docs/evidence/scripted-replay.json
+Exit code: 0
+Result: mode=scripted_replay, status=success, actions_used=11, actions_remaining=0

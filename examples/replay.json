@@ -1,0 +1,13 @@
+[
+  {"tool": "inspect", "arguments": {"scope": "board"}},
+  {"tool": "inspect", "arguments": {"scope": "cell", "row": 1, "col": 3}},
+  {"tool": "add_fact", "arguments": {"literal": "Board_v0_Cell13Only4"}},
+  {"tool": "add_rule", "arguments": {"premises": ["Board_v0_Cell13Only4"], "conclusion": "Board_v0_Cell13CanPlace4"}},
+  {"tool": "query", "arguments": {"literal": "Board_v0_Cell13CanPlace4"}},
+  {"tool": "place", "arguments": {"row": 1, "col": 3, "digit": 4}},
+  {"tool": "place", "arguments": {"row": 5, "col": 5, "digit": 5}},
+  {"tool": "undo", "arguments": {}},
+  {"tool": "place", "arguments": {"row": 5, "col": 5, "digit": 5}},
+  {"tool": "place", "arguments": {"row": 9, "col": 9, "digit": 9}},
+  {"tool": "submit", "arguments": {}}
+]
