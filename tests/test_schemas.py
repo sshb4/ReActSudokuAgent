@@ -42,18 +42,18 @@ def test_t01_schema_is_well_formed():
     Draft202012Validator.check_schema(TOOL_SCHEMAS)
 
 
-@pytest.mark.parametrize("request", VALID)
-def test_t01_valid_tools_match_schema_and_parser(request):
-    assert Draft202012Validator(TOOL_SCHEMAS).is_valid(request)
-    result = parse_request(deepcopy(request))
+@pytest.mark.parametrize("tool_request", VALID)
+def test_t01_valid_tools_match_schema_and_parser(tool_request):
+    assert Draft202012Validator(TOOL_SCHEMAS).is_valid(tool_request)
+    result = parse_request(deepcopy(tool_request))
     assert result["ok"] is True
-    assert result["data"]["request"] == request
+    assert result["data"]["request"] == tool_request
 
 
-@pytest.mark.parametrize("request", INVALID)
-def test_t01_invalid_tools_match_schema_and_parser(request):
-    assert not Draft202012Validator(TOOL_SCHEMAS).is_valid(request)
-    assert parse_request(deepcopy(request))["ok"] is False
+@pytest.mark.parametrize("tool_request", INVALID)
+def test_t01_invalid_tools_match_schema_and_parser(tool_request):
+    assert not Draft202012Validator(TOOL_SCHEMAS).is_valid(tool_request)
+    assert parse_request(deepcopy(tool_request))["ok"] is False
 
 
 def test_i03_parser_distinguishes_errors():

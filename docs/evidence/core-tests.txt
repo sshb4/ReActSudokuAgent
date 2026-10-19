@@ -1,0 +1,7 @@
+Core implementation verification
+Command: .venv/bin/python -m pytest -q
+Exit code: 0
+
+........................................................................ [ 62%]
+............................................                             [100%]
+116 passed in 0.10s

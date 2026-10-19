@@ -1,5 +1,7 @@
 """Independent board fixtures; no production implementation is imported here."""
 
+from copy import deepcopy
+
 import pytest
 
 
@@ -35,5 +37,6 @@ def board():
 
 @pytest.fixture
 def one_empty(solved):
-    solved[0][2] = 0
-    return solved
+    board = deepcopy(solved)
+    board[0][2] = 0
+    return board

@@ -10,8 +10,8 @@ Solve one valid 9-by-9 Sudoku puzzle per run using a bounded, sequential model/t
 
 | Planned module | Public interface | Owned state | Dependencies |
 | --- | --- | --- | --- |
-| `puzzle.py` | `Puzzle(board)`, `inspect(scope, row=None, col=None, box=None)`, `place(row, col, digit)`, `undo()`, `validate_solution()` | Original clues, current board, placement stack | Standard library |
-| `knowledge.py` | `KnowledgeBase()`, `add_fact(literal)`, `add_rule(premises, conclusion)`, `query(literal)` | Accepted facts and rules | Propositional satisfiability implementation |
+| `puzzle.py` | `Puzzle(board)`, `inspect(scope, row=None, col=None, box=None)`, `place(row, col, digit)`, `undo()`, `validate_solution()` | Original clues, current board, placement stack | Schemas' result helpers; standard library |
+| `knowledge.py` | `KnowledgeBase()`, `add_fact(literal)`, `add_rule(premises, conclusion)`, `query(literal)` | Accepted facts and rules | Schemas' literal/result helpers; internal propositional satisfiability implementation |
 | `schemas.py` | Tool schemas, `parse_request(raw)`, request/result types | No mutable session state | Standard library |
 | `controller.py` | `Controller(board, max_actions)`, `step(raw_request)`, `snapshot()`, `fail_model()` | Puzzle and KB instances, action count, terminal status, trace | Puzzle, KB, schemas |
 | `agent.py` | `run(controller, model)` | Temporary model conversation | Controller and model interface |

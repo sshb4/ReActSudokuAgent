@@ -53,6 +53,14 @@ The coding agent then wrote 39 black-box test functions with parameterized cases
 
 A project virtual environment was created with pytest 9.1.1 and jsonschema 4.26.0 under Python 3.14.7. All test source files parsed successfully. The first `.venv/bin/python -m pytest -q` run exited with code 2 and five collection errors because the production package does not exist. [Exact initial output](evidence/initial-tests.txt) is retained. No behavioral tests have executed or passed yet. Implementation and subsequent verification remain pending.
 
+### 2026-10-19 — Core implementation and verification
+
+Following the test commit `5b3962a`, the coding agent implemented the puzzle, JSON tool schema/parser, classical propositional KB with DPLL satisfiability, controller, model protocol, and agent loop. The architecture was clarified to show puzzle/KB dependencies on shared schema/result helpers before those modules were written.
+
+The first implementation run revealed an existing test collection bug: `request` is a reserved pytest parameter name. Renaming it allowed 109 cases to run; 107 passed, and two failed because the `one_empty` fixture mutated the same `solved` object used for expected results. The fixture now copies the board first. Assertions and behavior contracts were not weakened. All 109 original cases then passed.
+
+The coding agent reviewed the implementation against the contracts and added seven explicitly supplemental checks after implementation: public KB behavior against an independent eight-world truth-table oracle across 480 proposed updates, five white-box corrupted-board cases, and isolation from model-adapter mutation. The complete 116-case suite passes; [verification output](evidence/core-tests.txt) is retained. This is coding-agent verification, not a claim of completed student code review. A real model adapter, CLI, model demonstration, report, and student review remain outstanding.
+
 ## Submission checklist
 
 - Complete repository, specifications, tests, code, and reproducible run instructions.
