@@ -67,6 +67,14 @@ After committing the core in `cdb749e`, the coding agent specified L01–L02 and
 
 Next: choose and verify an actual model runtime, implement schema-constrained selection with a finite timeout, record a model-driven run, perform student code review, and prepare the accessible PDF. No real-model completion or student review is claimed yet.
 
+### 2026-10-19 — Local model adapter candidate
+
+The coding agent found no `ollama`, `llama-server`, `lmstudio`, or `lms` executable in PATH, and no Ollama or LM Studio application in `/Applications`. This does not rule out a runtime installed elsewhere. No model or runtime was downloaded. The agent consulted official Ollama structured-output and chat-endpoint documentation, then specified M01–M04 and wrote adapter tests before implementation (commit `8cead18`). The pre-implementation adapter run failed at import as retained in [the initial result](evidence/adapter-before-implementation.txt). Model-mode CLI tests were also written and committed before changing the CLI (`0838e12`); their initial run had five expected failures and one pass because that CLI mode was absent.
+
+The adapter was then implemented using standard-library HTTP/JSON, schema-constrained output, a configurable finite socket timeout, strict JSON parsing, safe error handling, and no automatic retry. It connects to a fixed loopback endpoint and does not configure credentials. All 154 cases pass; [verification](evidence/local-adapter-tests.txt) is retained. Adapter tests substitute the HTTP boundary. A real Ollama instance has not yet verified schema support or selected a move; the candidate integration must not be described as a demonstrated model solution.
+
+Outstanding: install/select a local runtime/model, run real schema-constrained inference, record a validated model-driven session, obtain student review, and finish the accessible report. The model download requires a separate setup decision because none was present and model size depends on the computer.
+
 ## Submission checklist
 
 - Complete repository, specifications, tests, code, and reproducible run instructions.

@@ -1,0 +1,10 @@
+Complete suite after local adapter and model-mode CLI implementation
+Command: .venv/bin/python -m pytest -q
+Exit code: 0
+
+........................................................................ [ 46%]
+........................................................................ [ 93%]
+..........                                                               [100%]
+154 passed in 0.16s
+
+Scope: adapter transport is mocked. No genuine local-model inference has run.
