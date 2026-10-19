@@ -1,0 +1,13 @@
+[project]
+name = "react-sudoku"
+version = "0.1.0"
+description = "A bounded ReAct Sudoku agent for CS 4300"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10", "jsonschema>=4,<5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"

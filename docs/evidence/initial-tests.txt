@@ -1,0 +1,64 @@
+Initial test run before production implementation
+Command: .venv/bin/python -m pytest -q
+Exit code: 2
+
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting tests/test_agent.py _____________________
+ImportError while importing test module '/Users/sashabates/ReActSudokuAgent/tests/test_agent.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_agent.py:8: in <module>
+    from react_sudoku.agent import run
+E   ModuleNotFoundError: No module named 'react_sudoku'
+__________________ ERROR collecting tests/test_controller.py ___________________
+ImportError while importing test module '/Users/sashabates/ReActSudokuAgent/tests/test_controller.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_controller.py:7: in <module>
+    from react_sudoku.controller import Controller
+E   ModuleNotFoundError: No module named 'react_sudoku'
+___________________ ERROR collecting tests/test_knowledge.py ___________________
+ImportError while importing test module '/Users/sashabates/ReActSudokuAgent/tests/test_knowledge.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_knowledge.py:5: in <module>
+    from react_sudoku.knowledge import KnowledgeBase
+E   ModuleNotFoundError: No module named 'react_sudoku'
+____________________ ERROR collecting tests/test_puzzle.py _____________________
+ImportError while importing test module '/Users/sashabates/ReActSudokuAgent/tests/test_puzzle.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_puzzle.py:7: in <module>
+    from react_sudoku.puzzle import Puzzle
+E   ModuleNotFoundError: No module named 'react_sudoku'
+____________________ ERROR collecting tests/test_schemas.py ____________________
+ImportError while importing test module '/Users/sashabates/ReActSudokuAgent/tests/test_schemas.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_schemas.py:8: in <module>
+    from react_sudoku.schemas import TOOL_SCHEMAS, parse_request
+E   ModuleNotFoundError: No module named 'react_sudoku'
+=========================== short test summary info ============================
+ERROR tests/test_agent.py
+ERROR tests/test_controller.py
+ERROR tests/test_knowledge.py
+ERROR tests/test_puzzle.py
+ERROR tests/test_schemas.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
+5 errors in 0.45s

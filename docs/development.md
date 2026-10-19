@@ -45,6 +45,14 @@ Use separate Git commits for specifications, tests, implementation, and conseque
 
 The student supplied the assignment. The coding agent read it and inspected the empty repository. After discussion, the design leaves the model runtime undecided instead of assuming an external API. The coding agent drafted the architecture, behavior contracts, and test plan before implementation. Student design review, tests, implementation, and execution evidence are still pending.
 
+### 2026-10-19 — Contracts clarified and tests written
+
+Before writing tests, the coding agent identified unspecified Python return formats, exact error codes, snapshot fields, and model message structure. These details were added as I01–I05 and committed with the initial specifications in `de4e68f`. The student authorized continuing; this does not establish that a detailed student design or code review has occurred.
+
+The coding agent then wrote 39 black-box test functions with parameterized cases across puzzle, KB, schemas, controller, and agent loop. No production function bodies existed to examine. Tests invoke only the specified public interfaces; the scripted model in the tests supplies requests without solving puzzles or inspecting internal state.
+
+A project virtual environment was created with pytest 9.1.1 and jsonschema 4.26.0 under Python 3.14.7. All test source files parsed successfully. The first `.venv/bin/python -m pytest -q` run exited with code 2 and five collection errors because the production package does not exist. [Exact initial output](evidence/initial-tests.txt) is retained. No behavioral tests have executed or passed yet. Implementation and subsequent verification remain pending.
+
 ## Submission checklist
 
 - Complete repository, specifications, tests, code, and reproducible run instructions.
