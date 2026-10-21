@@ -103,6 +103,8 @@ A two-page report was generated with selectable text, tagged H1/H2/P structure, 
 
 The final 24-action-budget run (`docs/evidence/model-run-kb-success.json`) succeeded in 18 actions with zero rejections. All requests were selected by the local model; the trace includes three model-chosen fact/rule/query sequences and their entailed results before placements. A separate verification preserved every original clue and checked each row, column, and box. KB names remain uninterpreted assertions; entailment is not a certificate that the model's chosen names accurately describe board truth. The run verifies the tool workflow and independent board correctness, not general or difficult-puzzle reliability. The report records this limitation.
 
+Code, specifications, tests, traces, report source, and the accessible report review copy were committed in `d972627` and successfully pushed to the previously empty public `main` branch. Local HEAD and the updated remote-tracking branch matched after publication. The publication check is retained in `docs/evidence/publication-verification.json`. Student code-review confirmation is still pending; no review completion or Canvas submission is claimed. After confirmation, the report can be rebuilt without the review-copy label and that final revision published.
+
 - Complete repository, specifications, tests, code, and reproducible run instructions.
 - Evidence of specification/test/implementation order and honest review/revision notes.
 - Complete passing test suite and a language-model demonstration trace.

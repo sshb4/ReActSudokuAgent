@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-20",
+  "repository": "https://github.com/sshb4/ReActSudokuAgent",
+  "visibility": "public",
+  "visibility_check": "GitHub repository API",
+  "branch": "main",
+  "published_code_commit": "d972627ad5c2e74685962c2a47b3eb7d66668e72",
+  "publication_check": "git push succeeded; local HEAD and origin/main matched immediately afterward",
+  "report": "output/pdf/react-sudoku-report.pdf",
+  "report_status": "review_copy_pending_student_code_review"
+}

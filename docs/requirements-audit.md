@@ -4,7 +4,7 @@ Checked October 20, 2026 against the supplied assignment, current source, tests,
 
 ## Overall result
 
-Update after gap fixes: all 170 tests pass; observations now include explicit terminal reasons; a genuine model run uses facts/rules/queries and completes in 18 actions. A tagged, visually checked report PDF is prepared at `output/pdf/react-sudoku-report.pdf` and includes the student's selected takeaway. The repository is confirmed public. Student code-review confirmation and publication of the final changes are still pending. The mapping below preserves the original audit findings for process evidence.
+Update after gap fixes: all 170 tests pass; observations now include explicit terminal reasons; a genuine model run uses facts/rules/queries and completes in 18 actions. A tagged, visually checked report PDF is prepared at `output/pdf/react-sudoku-report.pdf` and includes the student's selected takeaway. Code, evidence, and the report review copy have been pushed to the public repository; see `docs/evidence/publication-verification.json`. Student code-review confirmation remains pending. The mapping below preserves the original audit findings for process evidence.
 
 ## Rubric mapping
 
