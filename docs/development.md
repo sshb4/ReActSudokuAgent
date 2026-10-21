@@ -105,6 +105,10 @@ The final 24-action-budget run (`docs/evidence/model-run-kb-success.json`) succe
 
 Code, specifications, tests, traces, report source, and the accessible report review copy were committed in `d972627` and successfully pushed to the previously empty public `main` branch. Local HEAD and the updated remote-tracking branch matched after publication. The publication check is retained in `docs/evidence/publication-verification.json`. Student code-review confirmation is still pending; no review completion or Canvas submission is claimed. After confirmation, the report can be rebuilt without the review-copy label and that final revision published.
 
+### 2026-10-20 — LaTeX report requested
+
+The student requested a LaTeX-style report. An editable two-page LaTeX source and TikZ diagram were added under `report/`. Tectonic compiled the document; a separate postprocessing step maps marked content to semantic headings, paragraphs, and a Figure with alternative text. Selectable text, logical structure order, page bounds, and rendered layout were checked. The new PDF avoids asserting that student code review has already occurred. The student was reminded that retaining only code, tests, and README would omit the assignment's required in-repository specifications and the example inputs used by the run instructions. No commit or push was made for this new report; the student intends to manage staging.
+
 - Complete repository, specifications, tests, code, and reproducible run instructions.
 - Evidence of specification/test/implementation order and honest review/revision notes.
 - Complete passing test suite and a language-model demonstration trace.
