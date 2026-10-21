@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-20",
+  "runtime": "Ollama 0.40.6",
+  "model": "qwen2.5:1.5b",
+  "input": "examples/board.json",
+  "initial_empty_cells": 3,
+  "status": "success",
+  "actions_used": 8,
+  "rejected_requests": 0,
+  "original_clues_preserved": true,
+  "independent_row_column_box_checks": true,
+  "schema_warnings_observed": false,
+  "limitations": "One near-complete puzzle; no claim of reliability on harder puzzles. This model run did not choose KB or undo tools; those are covered by tests and the scripted replay."
+}

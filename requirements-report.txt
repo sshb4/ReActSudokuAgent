@@ -1,0 +1,4 @@
+# Optional: needed only to build/tag/render the PDF report, not to run the agent.
+reportlab==5.0.1
+pypdf==6.21.1
+pymupdf==2.0

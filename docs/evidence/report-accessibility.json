@@ -1,0 +1,11 @@
+{
+  "pages": 2,
+  "selectable_text": true,
+  "semantic_heading_tags": true,
+  "structure_tree_reading_order": true,
+  "diagram_alt_text": true,
+  "language": "en-US",
+  "student_review_confirmed": false,
+  "visual_review": "passed: both rendered pages inspected after the latest build",
+  "pdf_ua_certified": false
+}

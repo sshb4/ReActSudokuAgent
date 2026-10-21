@@ -48,17 +48,22 @@ class OllamaModel:
 
     def next_request(self, messages, tool_schemas):
         translated = []
+        instructions = []
         for message in messages:
             item = dict(message)
             if item["role"] == "developer":
-                item["role"] = "system"
+                instructions.append(item["content"])
+                continue
             elif item["role"] == "tool":
                 item["role"] = "user"
                 item["content"] = "Tool observation: " + item["content"]
             translated.append(item)
-        translated.insert(0, {"role": "system", "content":
-                             "Return exactly one JSON tool request matching this schema: "
-                             + json.dumps(tool_schemas)})
+        instructions.append("Return exactly one JSON tool request matching this schema: "
+                            + json.dumps(tool_schemas))
+        translated.insert(0, {"role": "system", "content": "\n\n".join(instructions)})
+        if len(messages) > 1 and messages[-1]["role"] == "developer":
+            translated.append({"role": "user", "content":
+                               "Current developer goal: " + messages[-1]["content"]})
         payload = {"model": self._model, "messages": translated,
                    "format": deepcopy(tool_schemas), "stream": False,
                    "options": {"temperature": 0}}

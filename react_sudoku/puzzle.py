@@ -52,7 +52,11 @@ class Puzzle:
             return failure("invalid_coordinates", "Supply the coordinates required by the scope.")
         if scope == "board":
             return success(values=deepcopy(self._board),
-                           givens=[[bool(v) for v in r] for r in self._original])
+                           givens=[[bool(v) for v in r] for r in self._original],
+                           empty_cells=[
+                               {"row": r + 1, "col": c + 1,
+                                "candidates": [d for d in range(1, 10) if self._legal(r, c, d)]}
+                               for r in range(9) for c in range(9) if self._board[r][c] == 0])
         if scope == "cell":
             r, c = row - 1, col - 1
             value = self._board[r][c]

@@ -14,7 +14,7 @@ Solve one valid 9-by-9 Sudoku puzzle per run using a bounded, sequential model/t
 | `knowledge.py` | `KnowledgeBase()`, `add_fact(literal)`, `add_rule(premises, conclusion)`, `query(literal)` | Accepted facts and rules | Schemas' literal/result helpers; internal propositional satisfiability implementation |
 | `schemas.py` | Tool schemas, `parse_request(raw)`, request/result types | No mutable session state | Standard library |
 | `controller.py` | `Controller(board, max_actions)`, `step(raw_request)`, `snapshot()`, `fail_model()` | Puzzle and KB instances, action count, terminal status, trace | Puzzle, KB, schemas |
-| `agent.py` | `run(controller, model)` | Temporary model conversation | Controller and model interface |
+| `agent.py` | `run(controller, model)` | Temporary model conversation and goals derived from accepted observations | Controller and model interface |
 | `model.py` | `Model.next_request(messages, tool_schemas)` | Model runtime configuration | Runtime to be selected |
 | `ollama_model.py` | `OllamaModel(model, timeout=60)`, `next_request(messages, tool_schemas)` | Local model name and HTTP timeout | Standard-library HTTP and JSON; separately installed Ollama |
 | `cli.py` | `main(argv)` | Run configuration and output paths | Agent, controller, model |
@@ -43,4 +43,4 @@ The model receives prompts, tool schemas, and serialized action-observation hist
 
 No external service is assumed. A local or server-backed runtime may implement the same model interface. Its output must be constrained to the tool schemas using the runtime's structured-output capability; controller validation remains mandatory. A runtime must demonstrate schema-constrained tool selection before it is selected for the final integration. The specific runtime and any dependency will be documented when verified.
 
-Ollama is the initial local adapter candidate, using its JSON-schema output format over loopback HTTP. The CLI can select that adapter or scripted replay. No installation or model download is implicit. Runtime verification remains pending until Ollama and an appropriate local model are available.
+Ollama is the local adapter, using its JSON-schema output format over loopback HTTP. The CLI can select that adapter or scripted replay. No installation or model download is implicit. Ollama 0.40.6 and Qwen 2.5 1.5B completed a verified model-driven run on October 20, 2026; the trace is retained under `docs/evidence/model-run-fixed.json`. This verifies the near-complete demonstration puzzle, not broader puzzle-solving reliability.

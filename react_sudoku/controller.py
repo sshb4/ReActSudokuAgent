@@ -33,7 +33,7 @@ class Controller:
     def _observe(self, result):
         return {**result, "actions_used": self._actions_used,
                 "actions_remaining": self._max_actions - self._actions_used,
-                "status": self._status}
+                "status": self._status, "terminal_reason": self._terminal_reason}
 
     def step(self, raw_request):
         if self._status != "running":

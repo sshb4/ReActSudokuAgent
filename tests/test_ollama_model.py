@@ -69,11 +69,26 @@ def test_m02_translates_history_and_sends_schema_without_mutation(monkeypatch):
     assert payload["format"] == schema
     assert payload["stream"] is False
     assert payload["options"]["temperature"] == 0
-    assert {"role": "system", "content": "Instructions"} in payload["messages"]
+    system = [m for m in payload["messages"] if m["role"] == "system"]
+    assert len(system) == 1
+    assert "Instructions" in system[0]["content"]
     assert {"role": "user", "content": 'Tool observation: {"ok":true}'} in payload["messages"]
     assert any(json.dumps(schema) in m["content"] for m in payload["messages"])
     assert messages == original
     assert schema == TOOL_SCHEMAS
+
+
+def test_m02_combines_system_instructions_and_preserves_current_goal(monkeypatch):
+    calls = transport(monkeypatch, envelope('{}'))
+    messages = [{"role": "developer", "content": "Initial instructions"},
+                {"role": "tool", "content": '{"ok":true}'},
+                {"role": "developer", "content": "NEXT GOAL: add_rule"}]
+    OllamaModel("local-model").next_request(messages, TOOL_SCHEMAS)
+    wire = json.loads(calls[-1][0].data)["messages"]
+    assert len([m for m in wire if m["role"] == "system"]) == 1
+    assert "Initial instructions" in wire[0]["content"]
+    assert "NEXT GOAL: add_rule" in wire[0]["content"]
+    assert wire[-1] == {"role": "user", "content": "Current developer goal: NEXT GOAL: add_rule"}
 
 
 @pytest.mark.parametrize("content", [

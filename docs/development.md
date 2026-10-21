@@ -77,6 +77,32 @@ Outstanding: install/select a local runtime/model, run real schema-constrained i
 
 ## Submission checklist
 
+### 2026-10-20 — Fixes from real-model testing
+
+The user approved installing a local runtime/model on October 19. Ollama 0.40.6 and `qwen2.5:1.5b` were installed. The small model was chosen given 16 GB of memory and approximately 4.3 GiB free disk before installation. Cloud features were disabled when starting the runtime.
+
+The first real run ([trace](evidence/model-run-initial.json)) reached its 20-action limit with repeated attempts to modify clues. The controller rejected those attempts without changing the puzzle. Runtime logs also identified an unsupported lookahead in the literal schema. Before editing the implementation, the coding agent specified explicit empty-cell labels and wrote eight regression cases; three initially failed because labels and compatible regex anchors had not been implemented.
+
+On October 20, after the user's request to finish these fixes, board inspection was updated to label empty-cell coordinates and report the existing locally legal candidates. The prompt now explains those observations and clarifies that rejected placements must not be undone. The schema uses a runtime-supported anchored pattern with a separate final-newline exclusion; the controller's stricter literal validator was preserved. All 162 cases passed (`.venv/bin/python -m pytest -q --tb=short`, 0.20 seconds).
+
+The installed runtime was restarted and the CLI rerun against the actual model. Qwen inspected the board, placed three forced digits, and explicitly submitted in eight actions, with no rejected requests. [Actual trace](evidence/model-run-fixed.json) and [independent verification](evidence/runtime-verification.json) are retained. A separate check compared all original clues and every row/column/box to digits 1–9. No schema warning was observed. This is a successful model-driven demonstration on a near-complete board; it does not establish hard-puzzle reliability or model use of KB/undo tools.
+
+Changes remain uncommitted at the user's preference to run tests without a prior commit. The test-first edits and initial failing results occurred before implementation, but they are not represented by separate Git commits. Student code review and the accessible PDF remain outstanding.
+
+## Remaining submission items
+
+### 2026-10-20 — Requirements-gap fixes and report preparation
+
+An audit against the supplied rubric found explicit terminal reasons missing from tool observations (although final results already had them), incomplete student review, no report PDF, and no published main branch. The terminal observation contract was updated and four black-box cases failed before the implementation fix. After adding the field, running, success, budget-limit, and model-error/terminal-session observations all passed.
+
+The original successful local-model run did not use the KB. Subsequent real prompt experiments were retained honestly: a long prompt led to unnecessary undos; a shorter prompt repeated facts; goal reminders alone still repeated steps; consolidated runtime instructions progressed through facts/rules/queries but exposed dropped negations. Prompts now quote exact model-selected literals/conclusions and distinguish a new conclusion atom from the accepted premise. Goal reminders use only accepted tool observations, never choose coordinates or digits, and execute no tools. Tests were written for goal progression, rejection/unresolved-query handling, preservation of chosen literals, and message consolidation before the respective changes. The complete suite passes 170 cases; `docs/evidence/final-tests.txt` retains the result. A 16-action reasoning run filled every cell but correctly ended at the budget limit without submission; it is not labeled successful.
+
+The repository was checked through GitHub and is public at `https://github.com/sshb4/ReActSudokuAgent`; its remote main branch was empty before publication. No existing branch is being overwritten. A concrete student review guide was prepared and the student said they would review it. Review completion is not inferred from that message. The student explicitly selected the takeaway "Decide what each function should do before coding it."
+
+A two-page report was generated with selectable text, tagged H1/H2/P structure, page reading-order mappings, language metadata, and a Figure tag containing alternative text. Both pages were rendered and visually inspected. The generator retains a visible review-copy label until the student confirms code review. Artifact-only dependencies are isolated in `requirements-report.txt`; the agent itself remains standard-library-only. No PDF/UA certification is claimed.
+
+The final 24-action-budget run (`docs/evidence/model-run-kb-success.json`) succeeded in 18 actions with zero rejections. All requests were selected by the local model; the trace includes three model-chosen fact/rule/query sequences and their entailed results before placements. A separate verification preserved every original clue and checked each row, column, and box. KB names remain uninterpreted assertions; entailment is not a certificate that the model's chosen names accurately describe board truth. The run verifies the tool workflow and independent board correctness, not general or difficult-puzzle reliability. The report records this limitation.
+
 - Complete repository, specifications, tests, code, and reproducible run instructions.
 - Evidence of specification/test/implementation order and honest review/revision notes.
 - Complete passing test suite and a language-model demonstration trace.

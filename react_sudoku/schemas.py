@@ -37,8 +37,10 @@ def _object(properties: dict) -> dict:
 
 
 _DIGIT = {"type": "integer", "minimum": 1, "maximum": 9}
-# The end assertion also rejects a final newline (unlike a bare '$').
-_LITERAL = {"type": "string", "pattern": "^" + LITERAL_PATTERN + r"$(?![\s\S])"}
+# Ollama requires ordinary anchors. Its character grammar excludes newlines;
+# JSON Schema validators also need to exclude a final newline explicitly.
+_LITERAL = {"type": "string", "pattern": "^" + LITERAL_PATTERN + "$",
+            "not": {"pattern": r"^[\s\S]*\n$"}}
 _ARGUMENTS = {
     "inspect": {"oneOf": [
         _object({"scope": {"const": "board"}}),

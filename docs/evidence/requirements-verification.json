@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-20",
+  "runtime": "Ollama 0.40.6",
+  "model": "qwen2.5:1.5b",
+  "mode": "local_model",
+  "initial_empty_cells": 3,
+  "status": "success",
+  "actions_used": 18,
+  "action_budget": 24,
+  "rejections": 0,
+  "tools": [
+    "add_fact",
+    "add_rule",
+    "inspect",
+    "place",
+    "query",
+    "submit"
+  ],
+  "entailed_queries": 3,
+  "original_clues_preserved": true,
+  "independent_row_column_box_validation": true,
+  "terminal_reason_in_observations": true,
+  "tests_passed": 170,
+  "limitations": "One near-complete board. KB entailment is relative to model-asserted, uninterpreted propositions and does not certify their board interpretation. Undo is covered separately by tests and scripted replay."
+}
